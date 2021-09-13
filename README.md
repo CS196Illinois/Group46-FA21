@@ -1,5 +1,5 @@
 # Group 46
-Group Name: TEAM_NAME
+Group Name: Group 46
 
 [MVP Link](https://docs.google.com/document/d/1DTXm3-yFKkEdYg_4LFe_g-VaZV20hCuUcJD_9QvPpfk/edit?usp=sharing)
 
