@@ -1,6 +1,6 @@
 import cv2
-import time
 import mediapipe as mp
+import time
 
 cap = cv2.VideoCapture(1)
 time.sleep(1.000)
@@ -15,12 +15,12 @@ mpDraw = mp.solutions.drawing_utils
 while(True):
     success, frame = cap.read()
     #frame = cv2.resize(frame, (1024, 768))
-    #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     processedHands = hands.process(frame)
 
     if processedHands.multi_hand_landmarks:
         for point in processedHands.multi_hand_landmarks:
-            mpDraw.draw_landmarks(frame, processedHands)
+            mpDraw.draw_landmarks(frame, point)
 
     cv2.imshow("Video", frame)
     
