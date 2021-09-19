@@ -1,1 +1,1 @@
-Plan file. Can also be a PDF or something else. Just make sure to name PLAN with all caps
+https://docs.google.com/document/d/1M9Wi2GLXYz33WYB4aqCwlf28lMJEPPY0QKhMKpZGQKk/edit?usp=sharing
