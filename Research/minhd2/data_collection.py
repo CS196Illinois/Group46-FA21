@@ -107,4 +107,4 @@ while(True):
                 csv_writer.writerow(handRow)
 
     # Render each frame
-    cv2.imshow("Training Model Test", frame)
+    cv2.imshow("Data Collection", frame)
