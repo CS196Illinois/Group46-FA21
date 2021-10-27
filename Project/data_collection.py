@@ -5,6 +5,7 @@ import numpy as np
 import time
 import tkinter as tk
 import os
+from tkinter import simpledialog
 
 datasetFile = "./datasets/thumbs.csv"
 imageDefinition = "Enter image definition by pressing 'd'"
@@ -55,7 +56,7 @@ while(True):
     elif keypress & 0xFF == ord('d'):
         tk_root = tk.Tk()
         tk_root.withdraw()
-        imageDefinition = tk.simpledialog.askstring(title="Train", prompt="Enter image definition:")
+        imageDefinition = simpledialog.askstring(title="Train", prompt="Enter image definition:")
 
     #frame = cv2.resize(frame, (1024, 768))
     # Mirror camera so handedness is correct
