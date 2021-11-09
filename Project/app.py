@@ -90,7 +90,7 @@ SETTINGS_PANE.add(IDENTIFY_TAB, text="Identify")
 
 # Intialize mediapipe
 mpHands = mp.solutions.hands
-hands = mpHands.Hands()
+hands = mpHands.Hands(max_num_hands=1)
 mpDraw = mp.solutions.drawing_utils
 
 def toggleIdentify():
