@@ -10,8 +10,11 @@ from sklearn.linear_model import LogisticRegression, RidgeClassifier
 from sklearn.metrics import accuracy_score
 import pickle
 
-datasetFile = "./datasets/thumbs.csv"
-modelFile = "./models/thumbs_gb.pkl"
+datasetFile = "./datasets/rhand_alphabet_minhd2.csv"
+modelFile = "./models/rhand_alphabet_minhd2"
+
+# Adjust for the number of lines in CSV file
+max_iter = 6000
 
 # Initialize dataset
 lmf = pd.read_csv(datasetFile)
@@ -37,7 +40,7 @@ lm_train, lm_test, def_train, def_test = train_test_split(landmarks, definitions
 pipelines = {
     "gb":make_pipeline(StandardScaler(), GradientBoostingClassifier()),
     "rf":make_pipeline(StandardScaler(), RandomForestClassifier()),
-    "lr":make_pipeline(StandardScaler(), LogisticRegression()),
+    "lr":make_pipeline(StandardScaler(), LogisticRegression(max_iter=max_iter)),
     "rc":make_pipeline(StandardScaler(), RidgeClassifier())
 }
 
@@ -55,9 +58,15 @@ for algo, model in models.items():
     yhat = model.predict(lm_test)
     print(algo, accuracy_score(def_test, yhat))
 
-# Serialize best model (choosing 'lr')
-with open(modelFile, 'wb') as f:
+# Serialize models
+with open(modelFile + "_gb.pkl", 'wb') as f:
     pickle.dump(models['gb'], f)
+with open(modelFile + "_rf.pkl", 'wb') as f:
+    pickle.dump(models['rf'], f)
+with open(modelFile + "_lr.pkl", 'wb') as f:
+    pickle.dump(models['lr'], f)
+with open(modelFile + "_rc.pkl", 'wb') as f:
+    pickle.dump(models['rc'], f)
 
 print("[*] Model trained and saved to {}".format(modelFile))
 print(lm_train)
