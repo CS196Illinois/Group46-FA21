@@ -12,7 +12,3 @@ pip install -r requirements.txt
 2. Use `training.py` to train four different models using different algorithms and determine the most accurate one. Then, save that model into a `.pkl` file.
 3. Import the pickle file into `identify.py` to use the trained model.
 4. Identify issues and improve dataset/model.
-
-## Detailed
-
-TODO

@@ -226,8 +226,16 @@ def frameLoop():
                     csv_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
                     csv_writer.writerow(handRow)
             elif identifying.get():
+                #handRow = np.array(handRow)
                 # Predict model
+                #handRowFrame = pd.DataFrame(handRow.reshape(-1, len(handRow)), columns = ['x0','y0','z0','x1','y1','z1','x2','y2','z2','x3','y3','z3','x4','y4','z4','x5','y5','z5','x6','y6','z6','x7','y7','z7','x8','y8','z8','x9','y9','z9','x10','y10','z10','x11','y11','z11','x12','y12','z12','x13','y13','z13','x14','y14','z14','x15','y15','z15','x16','y16','z16','x17','y17','z17','x18','y18','z18','x19','y19','z19','x20','y20','z20'])
+                #print(handRowFrame)
+                #handRowFrame = StandardScaler().fit_transform(handRowFrame)
+                #print(handRowFrame)
+                #X = np.transpose(StandardScaler().fit_transform(np.array(handRow).reshape(-1, 1)))[0]
+                #print(X)
                 X = pd.DataFrame([handRow])
+                #print(X)
                 displayDefinition = currentModel.predict(X)[0]
                 #probability = currentModel.predict_proba(X)[0]
 
