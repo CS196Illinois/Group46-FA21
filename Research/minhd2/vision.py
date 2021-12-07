@@ -30,6 +30,7 @@ while(True):
     # Draw hand landmarks on each frame
     if processedHands.multi_hand_landmarks:
         for idx, handLms in enumerate(processedHands.multi_hand_landmarks):
+            print(handLms)
             lbl = processedHands.multi_handedness[idx].classification[0].label
             # bounding box code: https://stackoverflow.com/questions/66876906/create-a-rectangle-around-all-the-points-returned-from-mediapipe-hand-landmark-d
             for lm in handLms.landmark:

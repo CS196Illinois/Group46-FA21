@@ -10,8 +10,8 @@ from sklearn.linear_model import LogisticRegression, RidgeClassifier
 from sklearn.metrics import accuracy_score
 import pickle
 
-datasetFile = "./datasets/rhand_alphabet_minhd2.csv"
-modelFile = "./models/rhand_alphabet_minhd2"
+datasetFile = "./datasets/flbr_minhd2.csv"
+modelFile = "./models/flbr_minhd2"
 
 # Adjust for the number of lines in CSV file
 max_iter = 6000
@@ -34,7 +34,7 @@ definitions = lmf["definition"]
 #print("Landmarks shape: {}".format(landmarks.shape))
 #print("First 4 Landmarks: {}".format(landmarks[:4]))
 
-lm_train, lm_test, def_train, def_test = train_test_split(landmarks, definitions, test_size=0.3, random_state=1337)
+lm_train, lm_test, def_train, def_test = train_test_split(landmarks, definitions, test_size=0.2, random_state=1337)
 
 # Initialize pipelines
 pipelines = {
@@ -43,6 +43,9 @@ pipelines = {
     "lr":make_pipeline(StandardScaler(), LogisticRegression(max_iter=max_iter)),
     "rc":make_pipeline(StandardScaler(), RidgeClassifier())
 }
+
+#lm_train_scaled = StandardScaler().fit_transform(lm_train)
+#print(lm_train_scaled)
 
 # Train pipelines into models
 models = {}

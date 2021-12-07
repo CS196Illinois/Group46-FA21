@@ -3,6 +3,7 @@ numpy
 opencv-python
 pandas
 Pillow
+pynput
 scikit-learn
 tk
 tkinter

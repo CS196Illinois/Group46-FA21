@@ -5,7 +5,7 @@ import pandas as pd
 import pickle
 import time
 
-modelFile = "./models/thumbs_gb.pkl"
+modelFile = "./models/rhand_alphabet_marcelh2_lr.pkl"
 
 # Initialize model
 with open(modelFile, 'rb') as f:
@@ -19,7 +19,7 @@ cap.set(4,480)
 
 # Initialize mediapipe
 mpHands = mp.solutions.hands
-hands = mpHands.Hands()
+hands = mpHands.Hands(max_num_hands=1)
 mpDraw = mp.solutions.drawing_utils
 
 while(True):
@@ -69,7 +69,7 @@ while(True):
             probability = model.predict_proba(X)[0]
             # TODO: Fix probabilities: https://towardsdatascience.com/pythons-predict-proba-doesn-t-actually-predict-probabilities-and-how-to-fix-it-f582c21d63fc
 
-            cv2.putText(frame, text = displayDefinition + " p=" + str(probability), org = (x_min, y_min), fontFace = cv2.FONT_HERSHEY_SIMPLEX, fontScale = 1, color = (0, 255, 0), thickness = 2, lineType = cv2.LINE_AA)
+            cv2.putText(frame, text = displayDefinition + " p=" + str(probability), org = (0, 100), fontFace = cv2.FONT_HERSHEY_SIMPLEX, fontScale = 1, color = (0, 255, 0), thickness = 2, lineType = cv2.LINE_AA)
             mpDraw.draw_landmarks(frame, handLms)
 
     # Render each frame

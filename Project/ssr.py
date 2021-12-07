@@ -7,12 +7,16 @@ import pickle
 import tkinter as tk
 import time
 import os
+import warnings
+warnings.filterwarnings("ignore")
 
 from PIL import Image, ImageTk
+from pynput import keyboard
+from pynput.keyboard import Key, Controller
 from tkinter import simpledialog
 from tkinter import ttk
 
-modelFile = "./models/arrows_minhd2_vanilla_lr.pkl"
+modelFile = "./models/flbr_minhd2_lr.pkl"
 
 # Intialize vision
 width, height = 800, 600
@@ -23,6 +27,7 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
 
 # Initialize GUI
 root = tk.Tk()
+root.attributes('-topmost', True)
 root.title("Sign Sign Revolution")
 root.bind("<Escape>", lambda e: root.quit())
 WEBCAM_PANE = tk.Label(root)
@@ -40,7 +45,36 @@ with open(modelFile, 'rb') as f:
     global currentModel
     currentModel = pickle.load(f)
 
+def on_press(key):
+    if (key == Key.space):
+        if (displayDefinition == "Right.letter_f"):
+            print("Forward")
+            outputKeyboard.press(Key.up)
+            outputKeyboard.release(Key.up)
+        elif (displayDefinition == "Right.letter_b"):
+            print("Backward")
+            outputKeyboard.press(Key.down)
+            outputKeyboard.release(Key.down)
+        elif (displayDefinition == "Right.letter_l"):
+            print("Left")
+            outputKeyboard.press(Key.left)
+            outputKeyboard.release(Key.left)
+        elif (displayDefinition == "Right.letter_r"):
+            print("Right")
+            outputKeyboard.press(Key.right)
+            outputKeyboard.release(Key.right)
+        else:
+            print(displayDefinition)
+
+# Initialize keyboard
+outputKeyboard = Controller()
+listener = keyboard.Listener(
+    on_press=on_press)
+listener.start()
+
 def frameLoop():
+    global displayDefinition
+
     success, frame = cap.read()
     frame = cv2.flip(frame, 1)
     processedHands = hands.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
@@ -74,7 +108,7 @@ def frameLoop():
                     y_max = y
                 if y < y_min:
                     y_min = y
-            cv2.putText(frame, text = lbl, org = (x_min, y_min), fontFace = cv2.FONT_HERSHEY_SIMPLEX, fontScale = 1, color = (0, 255, 0), thickness = 2, lineType = cv2.LINE_AA)
+            #cv2.putText(frame, text = lbl, org = (x_min, y_min), fontFace = cv2.FONT_HERSHEY_SIMPLEX, fontScale = 1, color = (0, 255, 0), thickness = 2, lineType = cv2.LINE_AA)
             cv2.putText(frame, text = displayDefinition, org = (0, 100), fontFace = cv2.FONT_HERSHEY_SIMPLEX, fontScale = 1, color = (0, 255, 0), thickness = 2, lineType = cv2.LINE_AA)
             mpDraw.draw_landmarks(frame, handLms)
 
