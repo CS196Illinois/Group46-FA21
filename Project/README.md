@@ -1,5 +1,6 @@
 <p align="center">
   <img src="assets/ssr_logo.jpg">
+  <img src="assets/ssr-demo.gif">
 </p>
 
 # Sign Sign Revolution
