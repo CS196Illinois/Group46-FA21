@@ -30,8 +30,6 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
 root = tk.Tk()
 root.title("Training GUI")
 root.bind("<Escape>", lambda e: root.quit())
-root.bind("<space>", lambda e: toggleRecord())
-root.bind("<Right>", lambda e: print("[*] Changing settings"))
 WEBCAM_PANE = tk.Label(root)
 WEBCAM_PANE.pack(side="left")
 SETTINGS_PANE = ttk.Notebook(root)
@@ -59,12 +57,9 @@ tk.Label(DATA_COLLECTION_TAB, text="NetID or unique ID: ").grid(row=1, column=0,
 tk.Entry(DATA_COLLECTION_TAB, textvariable=netID).grid(row=1, column=1, sticky='w')
 tk.Label(DATA_COLLECTION_TAB, textvariable=datasetFile).grid(row=2, column=0, sticky='w')
 tk.Button(DATA_COLLECTION_TAB, text="Update", command=lambda: setDatasetFile()).grid(row=2, column=1, sticky='w')
-tk.Checkbutton(DATA_COLLECTION_TAB, text="Overwrite previous data (not implemented)", variable=overwriteData).grid(row=3, sticky='w')
 tk.Label(DATA_COLLECTION_TAB, text="Definition (value to record): ").grid(row=4, column=0, sticky='w')
 tk.Entry(DATA_COLLECTION_TAB, textvariable=datasetDefinition).grid(row=4, column=1, sticky='w')
 tk.Button(DATA_COLLECTION_TAB, textvariable=recordButtonMessage, command=lambda: toggleRecord()).grid(row=5, column=0, sticky='w')
-tk.Label(DATA_COLLECTION_TAB, text="Debug datasetFile: ").grid(row=6, column=0, sticky='w')
-tk.Button(DATA_COLLECTION_TAB, text="Debug", command=lambda: print(datasetFile.get())).grid(row=6, column=1, sticky='w')
 # TODO: Add live recording status
 # TODO: Add dropdown to save only points for left hand, right hand, or both hands
 

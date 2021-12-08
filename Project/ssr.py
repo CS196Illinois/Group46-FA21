@@ -1,4 +1,3 @@
-import csv
 import cv2
 import mediapipe as mp
 import numpy as np
@@ -6,15 +5,14 @@ import pandas as pd
 import pickle
 import tkinter as tk
 import time
-import os
-import warnings
-warnings.filterwarnings("ignore")
 
 from PIL import Image, ImageTk
 from pynput import keyboard
 from pynput.keyboard import Key, Controller
-from tkinter import simpledialog
 from tkinter import ttk
+
+import warnings
+warnings.filterwarnings("ignore")
 
 modelFile = "./models/lbfr_minhd2_lr.pkl"
 

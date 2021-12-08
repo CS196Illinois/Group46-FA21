@@ -1,6 +1,8 @@
-# Sign Sign Revolution
+<p align="center">
+  <img src="assets/ssr_logo.jpg">
+</p>
 
-## What is this?
+# Sign Sign Revolution
 
 Sign Sign Revolution is a Python application which turns American Sign Language (ASL) signs into keyboard input. For this project specifically, we mapped ASL signs into arrow controls for the popular rhythm game, "Dance Dance Revolution" (also known as "In the Groove").
 
@@ -8,7 +10,7 @@ However, our program is not limited to recognizing ASL and it is not limited to 
 
 This project was created by Group 46 of UIUC's CS 196 Fall 2021 course.
 
-## How to play Sign Sign Revolution
+## Installation
 
 Make sure you are in the `./Project/` directory of the repository for the following steps.
 
@@ -54,7 +56,7 @@ The repository also includes directional hand sign mappings (arrows model). And 
 We created a GUI to make it extremely easy to train your own model for use with SSR. Start by running:
 
 ```
-python app.py
+python training_gui.py
 ```
 
 In the first tab, you will be able to collect data for each label you want to identify and save them into a CSV file.
