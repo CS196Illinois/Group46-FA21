@@ -16,7 +16,7 @@ from pynput.keyboard import Key, Controller
 from tkinter import simpledialog
 from tkinter import ttk
 
-modelFile = "./models/flbr_minhd2_lr.pkl"
+modelFile = "./models/lbfr_minhd2_lr.pkl"
 
 # Intialize vision
 width, height = 800, 600

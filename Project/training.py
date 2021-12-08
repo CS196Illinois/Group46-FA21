@@ -10,8 +10,8 @@ from sklearn.linear_model import LogisticRegression, RidgeClassifier
 from sklearn.metrics import accuracy_score
 import pickle
 
-datasetFile = "./datasets/flbr_minhd2.csv"
-modelFile = "./models/flbr_minhd2"
+datasetFile = "./datasets/lbfr_minhd2.csv"
+modelFile = "./models/lbfr_minhd2"
 
 # Adjust for the number of lines in CSV file
 max_iter = 6000
