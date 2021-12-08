@@ -50,7 +50,7 @@ When you see an arrow on the screen, hold up the corresponding sign. Once the ar
 |     ![](assets/left.png)    |       ![](assets/down.png)       |       ![](assets/up.png)      |     ![](assets/right.png)     |
 |     ![](assets/L.jpg)    |       ![](assets/B.jpg)       |       ![](assets/F.jpg)      |     ![](assets/R.jpg)     |
 
-The repository also includes directional hand sign mappings (arrows model). And of course, you can also train your own model!
+The repository also includes directional hand sign mappings (arrows model). And of course, you can train your own model to use custom signs!
 
 ## Training your own model
 
@@ -64,13 +64,13 @@ In the first tab, you will be able to collect data for each label you want to id
 
 In the second tab, you will be able to train 4 different models using your generated CSV file and pick the most accurate one (we recommend using logistic regression "lr" if there is a tie).
 
-In the third tab, you can test your model in real time to see if predictions are accurate. Once you are satisfied, you can modify `ssr.py` to use your custom model file.
+In the third tab, you can test your model in real time to see if predictions are accurate. If you need to, you can go back and add more data points to your CSV file and retrain the models. Once you are satisfied, you can modify `ssr.py` to use your custom model file and custom `displayDefinition` labels.
 
 ## Credits
 
 - [OpenCV](https://github.com/opencv/opencv) - used for computer vision and camera input
-- [Mediapipe](https://github.com/google/mediapipe) - used for hand tracking and plotting
+- [MediaPipe](https://github.com/google/mediapipe) - used for hand tracking and plotting
 - [scikit-learn](https://github.com/scikit-learn/scikit-learn) - used for machine learning and training models from datasets
 - [pynput](https://github.com/moses-palmer/pynput) - used to capture and send keyboard input
-- [NumPy](https://github.com/numpy/numpy) - used for quick maths :p
+- [NumPy](https://github.com/numpy/numpy) - used for quick maths
 - [StepMania](https://github.com/stepmania/stepmania) - used for funky fresh beats
