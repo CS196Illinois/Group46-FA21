@@ -23,9 +23,9 @@ pip install -r requirements.txt
 
 Next, download and install [StepMania 5](https://www.stepmania.com/download/) for your platform. Then, navigate to your StepMania data folder (directory names may vary):
 
-Windows: `%APPDATA%/StepMania 5/`
-Linux: `~/.stepmania-5.1/`
-macOS: `~/Library/Preferences/StepMania 5.1/`
+Windows: `%APPDATA%/StepMania 5/`  
+Linux: `~/.stepmania-5.1/`  
+macOS: `~/Library/Preferences/StepMania 5.1/`  
 
 Copy the contents of the `Songs` directory in this repository to `Songs` in the StepMania data directory. The two songs, "24K Magic (PrototypeRaptor Remix)" and "Bad Apple (Nhato Remix)" have been modified so that their level 1 difficulties do not contain chords, which are currently not supported by SSR. If you wish to find more song packs, check out [stepmaniaonline.net](https://search.stepmaniaonline.net/). Once you have installed songs, launch StepMania.
 
